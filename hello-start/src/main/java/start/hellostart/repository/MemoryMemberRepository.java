@@ -1,14 +1,15 @@
 package start.hellostart.repository;
 
+import org.springframework.stereotype.Repository;
 import start.hellostart.domain.Member;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
-
+@Repository
 public class MemoryMemberRepository implements MemberRepository {
 
-    private static Map<Long, Member> store = new HashMap<>();
+    private static Map<Long, Member> store = new ConcurrentHashMap<>();
     private static long sequence = 0L;
 
     @Override
