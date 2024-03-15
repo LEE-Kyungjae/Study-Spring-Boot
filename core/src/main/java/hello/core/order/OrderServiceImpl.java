@@ -12,7 +12,7 @@ public class OrderServiceImpl implements OrderService {
     //private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
     //private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
     private final MemberRepository memberRepository;
-    private DiscountPolicy discountPolicy;
+    private final DiscountPolicy discountPolicy;
 
 
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy){
@@ -27,4 +27,9 @@ public class OrderServiceImpl implements OrderService {
 
         return new Order(memeberId, itemName, itemPrice, discountPrice);
     }
+    //테스트용도
+    public MemberRepository getMemberRepository(){
+        return memberRepository;
+    }
+
 }

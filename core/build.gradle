@@ -17,11 +17,13 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
 
-tasks.named('test') {
+test {
 	useJUnitPlatform()
 }
 kotlin {
